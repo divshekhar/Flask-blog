@@ -4,6 +4,10 @@ This is a Blog website Template built using Flask(Python). Download and Just cha
 ## Usage
 
 ```bash
+pip install -r requirements.txt
+```
+
+```bash
 python main.py
 ```
 
