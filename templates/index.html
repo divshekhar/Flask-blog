@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+{% set img_link = url_for('static', filename='img/robot.jpg')  %}
+<!-- Page Header -->
+<header class="masthead" style="background-image: url({{img_link}})">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>{{params['title']}}</h1>
+                    <span class="subheading">{{params['tagline']}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <h2>Go to Admin Panel</h2>
+    <a href="/dashboard"><button class="btn btn-success">Dashboard</button></a>
+    <hr>
+    <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+
+            {% for post in posts %}
+            <div class="post-preview">
+                <a href="/post/{{post.slug}}">
+                    <h2 class="post-title">
+                        {{post.title}}
+
+                    </h2>
+                    <h3 class="post-subtitle">
+                        {{post.subtitle}}
+                    </h3>
+                </a>
+                <p class="post-meta">Posted by
+                    <a href="#">Start Bootstrap</a>
+                    on {{post.date}}</p>
+                {{post.content[0:50]}}...
+            </div>
+            <hr>
+
+            {% endfor %}
+
+            <!-- Pager -->
+            <div class="clearfix">
+                <a class="btn btn-primary float-lrft" href="{{prev}}">&larr; Previous</a>
+                <a class="btn btn-success float-right" href="{{next}}">Next &rarr;</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

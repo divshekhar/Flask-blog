@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{{params['description']}}">
+    <meta name="author" content="{{params['author']}}">
+    <title>Admin Panel</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/sign-in/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="{{url_for('static',filename='css/signin.css')}}" rel="stylesheet">
+</head>
+
+<body class="text-center">
+    {% set file = 'img/' + params['admin_panel_image'] %}
+    <form class="form-signin" method="post" action='/dashboard'>
+        <img class="mb-4" src="{{url_for('static',filename=file)}}" alt="" width="72" height="72">
+        <h1 class="h3 mb-3 font-weight-normal">Admin Panel</h1>
+        <label for="user" class="sr-only">Admin Username</label>
+        <input type="text" name="user" id="user" class="form-control" placeholder="Admin Username" required autofocus>
+        <label for="pass" class="sr-only">Password</label>
+        <input type="password" name="pass" id="pass" class="form-control" placeholder="Password" required>
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">&copy;{{params['title']}} 2020-2021</p>
+    </form>
+</body>
+
+</html>

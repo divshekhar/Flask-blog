@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+{% set img_link = url_for('static', filename='img/nature.jpg')  %}
+
+{% if sno == '0' or sno == 0 %}
+{% set heading="ADD NEW POST" %}
+{% set title="NEW POST" %}
+{% set button="ADD NEW POST" %}
+{% else %}
+{% set heading="Serial Number of Post is: " + post.sno|string %}
+{% set button="Confirm Edit" %}
+{% set title="EDIT POST" %}
+{% endif %}
+
+<!-- Page Header -->
+<header class="masthead" style="background-image: url({{img_link}})">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1>{{title}}</h1>
+                    <span class="subheading">Customize</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+
+    <h1>{{heading}}</h1>
+    <hr>
+    <form name="sentMessage" action="/edit/{{post.sno}}" method="post" id="contactForm" novalidate>
+        <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+                <label>Post Title</label>
+                <input type="text" name="title" class="form-control" placeholder="Title" id="name" required
+                    data-validation-required-message="Please enter title of the post." value="{{post.title}}">
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+                <label>Subtitle</label>
+                <input type="text" name="subtitle" class="form-control" placeholder="Subtitle" id="subtitle" required
+                    data-validation-required-message="Please enter tagline of the post." value="{{post.subtitle}}">
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+                <label>Slug</label>
+                <input type="text" name="slug" class="form-control" placeholder="Slug" id="slug" required
+                    data-validation-required-message="slug-missing." value="{{post.slug}}">
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="form-group col-xs-12 floating-label-form-group controls">
+                <label>Image Url</label>
+                <input type="text" name="img" class="form-control" placeholder="Image" id="img" required
+                    data-validation-required-message="Image Not Found" value="{{post.img_url}}">
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+                <label>Content</label>
+                <textarea rows="5" name="content" class="form-control" placeholder="Content" id="content" required
+                    data-validation-required-message="Please enter Content.">{{post.content}}</textarea>
+                <p class="help-block text-danger"></p>
+            </div>
+        </div>
+        <br>
+        <div id="success"></div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success" id="sendMessageButton">{{button}}</button>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

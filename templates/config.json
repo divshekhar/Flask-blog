@@ -1,0 +1,22 @@
+{
+    "params": {
+        "title": "Website Name",
+        "tagline": "Website Tagline",
+        "description": "Description about Website",
+        "author": "Divyanshu Shekhar",
+        "local_server": "True",
+        "local_uri": "mysql+pymysql://root:@localhost/flask",
+        "prod_uri": "mysql+pymysql://root:@localhost/flask",
+        "github": "https://github.com/divshekhar",
+        "instagram": "https://instagram.com/dshekhar17",
+        "linkedin": "https://linkedin.com",
+        "gmail-username": "Your Email",
+        "gmail-password": "Your Password",
+        "admin_user": "admin",
+        "admin_password": "admin",
+        "admin_panel_image": "robot.jpg",
+        "no_of_posts": 4,
+        "upload_location": "D:\\Projects\\Python\\flask\\static\\img"
+    }
+
+}
